@@ -77,4 +77,28 @@ int main(){
   return 0;
 }
 ```
+## Derived Destructors
+* Derived destructors are called first, then their parents i.e opposite to what happening in constructors.
+```
+class Base{
+  public:
+  Base(){ cout<<"Constructor of Base\n"; }
+  virtual ~Base(){ cout<<"Destructor of Base\n"; }
+};
+class Derived{
+  public:
+  Derived(){ cout<<"Constructor of Derived\n"; }
+  ~Derived(){ cout<<"Destructor of Derived\n"; }
+};
 
+void main(){
+  Base *bptr = new Derived();
+  delete p;
+}
+
+### Output :
+Constructor of Base
+Constructor of Derived
+Destructor of Derived
+Destructor of Base
+```
