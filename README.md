@@ -109,3 +109,31 @@ Destructor of Base
 * Cloud Data Storage
 * Big Query
 * Cloud Datastore
+
+
+## Google Cloud Shell
+
+* gcloud version
+
+  *This will display a list of installed Cloud SDK components and their versions*
+  
+* gcloud app deploy ./index.yaml ./app.yaml
+
+  *Deploy the app to App Engine*
+  
+* gcloud app browse 
+
+  *To view your application in the web browser*
+ 
+### Configure Your Cloud Shell Environment
+
+* gcloud compute zones list
+
+  *List available time zones*
+
+* gcloud config set compute/zone asia-south1-a
+ 
+  *Set a time zone example*
+
+
+  
