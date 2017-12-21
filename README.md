@@ -37,4 +37,44 @@ int main(){
   obj.MethodA(1,1); // This call will not work
   return 0;
 }
+```
+
+## Virtual Functions
+* A virtual function provides run time polymorphism and executes the function present in the object being referenced.
+```
+class Base{
+  public:
+  void display(){
+    cout<<"Base class displayed\n";
+  }
+  virtual void show(){
+    cout<<"Base class showed\n";
+  }
+};
+class Derived : public Base{
+  public:
+  void display(){
+    cout<<"Derived class displayed\n";
+  }
+  void show(){
+    cout<<"Derived class showed\n";
+  }
+};
+
+int main(){
+  Base B;
+  Derived D;
+  Base *bptr;
+  
+  bptr = &B;
+  bptr->display();    //Calls base version
+  bptr->show();       //Calls base version
+  
+  bptr = &D;
+  bptr->display();    //Calls base version
+  bptr->show();       //Calls derived version
+  
+  return 0;
+}
+```
 
