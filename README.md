@@ -102,3 +102,10 @@ Constructor of Derived
 Destructor of Derived
 Destructor of Base
 ```
+
+## Google Cloud Platform Components
+* App Engine
+* Compute Engine
+* Cloud Data Storage
+* Big Query
+* Cloud Datastore
