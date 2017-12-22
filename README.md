@@ -104,9 +104,10 @@ Destructor of Base
 ```
 
 ## GO LANG NOTES
-```
-Go's basic types are
 
+* Go's basic types are
+
+```
 bool
 
 string
