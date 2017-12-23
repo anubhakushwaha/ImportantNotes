@@ -157,5 +157,71 @@ complex64 complex128
  
   *Set a time zone example*
 
+### Curl Commands
 
+* Sometimes, you may want to debug a problem because the curl command hasn't returned what it was supposed to or just hasn't worked at all. In such cases, you can use the verbose mode using -v or **--verbose** to get more output from curl. Let's modify the previous HTTP request to become verbose.
+
+```
+curl -Iv  www.httpbin.org
+* Rebuilt URL to: www.httpbin.org/
+*   Trying 54.243.173.79...
+* Connected to www.httpbin.org (54.243.173.79) port 80 (#0)
+> HEAD / HTTP/1.1
+> Host: www.httpbin.org
+> User-Agent: curl/7.47.0
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< Connection: keep-alive
+Connection: keep-alive
+< Server: meinheld/0.6.1
+Server: meinheld/0.6.1
+< Date: Sat, 23 Dec 2017 11:35:29 GMT
+Date: Sat, 23 Dec 2017 11:35:29 GMT
+< Content-Type: text/html; charset=utf-8
+Content-Type: text/html; charset=utf-8
+< Content-Length: 13011
+Content-Length: 13011
+< Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: *
+< Access-Control-Allow-Credentials: true
+Access-Control-Allow-Credentials: true
+< X-Powered-By: Flask
+X-Powered-By: Flask
+< X-Processed-Time: 0.00564694404602
+X-Processed-Time: 0.00564694404602
+< Via: 1.1 vegur
+Via: 1.1 vegur
+
+< 
+* Connection #0 to host www.httpbin.org left intact
+```
+**Lines prefixed with a greater-than (>) sign show the data curl has sent to the server.**
+**Lines prefixed with a less-than (<) sign show the data curl has received from the server.**
+
+### POST request
+
+You can send a POST request by using the -d (or --data) flag. It͛s up to you to properly URL encode the data or specify it as JSON. We'll see the examples for both of those. Here's how you'd send URL encoded data as a part of the POST body
+
+```
+me@home:~$ curl -d 'name=john+doe&course=linux' httpbin.org/post
+```
+
+The response sent by HTTPBin will simply echo what you͛ve sent.
+
+To send JSON:
+
+```
+me@home:~$ curl -d '{"name":"John Doe","course":"Linux"}' httpbin.org/post
+```
+
+Notice that in both the examples, the data is enclosed in single quotes. Using double quotes is okay but it may cause problems if the body also contains double quotes like JSON. Using single quotes is the safer approach.
   
+### PUT request
+
+ReST APIs use the PUT request to **update an existing resource** that the server manages. Making a PUT request with curl is similar to making a POST request. Here’s how you’d make a PUT request:
+
+```
+me@home:~$ curl -X PUT -d '{"name":"Jane Doe"}' httpbin.org/put
+```
