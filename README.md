@@ -225,3 +225,13 @@ ReST APIs use the PUT request to **update an existing resource** that the server
 ```
 me@home:~$ curl -X PUT -d '{"name":"Jane Doe"}' httpbin.org/put
 ```
+
+
+### Create a virtual environment
+
+ > virtualenv -p python3 venv
+
+### Activate venv
+
+ > source venv/bin/activate
+
